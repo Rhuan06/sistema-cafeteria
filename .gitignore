@@ -1,0 +1,11 @@
+# Ignora variáveis de ambiente (Credenciais do PostgreSQL)
+.env
+
+# Ignora pastas de cache geradas automaticamente pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignora ambientes virtuais
+venv/
+env/
