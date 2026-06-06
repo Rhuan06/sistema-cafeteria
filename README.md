@@ -1,8 +1,27 @@
 # ☕ Sistema de Gestão para Cafeteria
 
-Sistema de gerenciamento de produtos e pedidos desenvolvido em **Python** com persistência de dados em **PostgreSQL**.
+![Python](https://img.shields.io/badge/Python-3.14+-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
-O projeto foi construído com foco em **Programação Orientada a Objetos (POO)**, **Clean Code**, **Arquitetura em Camadas** e boas práticas de desenvolvimento back-end, simulando cenários reais de controle de estoque e registro de vendas.
+> Sistema de gerenciamento de produtos e pedidos desenvolvido em **Python** com persistência de dados em **PostgreSQL**.
+
+Este projeto foi criado com foco em **Programação Orientada a Objetos (POO)**, **Clean Code**, **Arquitetura em Camadas** e **boas práticas de desenvolvimento Back-end**, simulando um cenário real de controle de estoque e registro de vendas para uma cafeteria.
+
+---
+
+## 📋 Sobre o Projeto
+
+O sistema permite o gerenciamento completo de produtos e pedidos através de uma interface de linha de comando (CLI).
+
+Além das operações de CRUD, o projeto implementa conceitos importantes de desenvolvimento de software, como:
+
+* Encapsulamento com `@property` e `@setter`
+* Persistência de dados em banco relacional
+* Transações ACID
+* Integridade referencial
+* Separação de responsabilidades
+* Variáveis de ambiente para proteção de credenciais
 
 ---
 
@@ -10,63 +29,83 @@ O projeto foi construído com foco em **Programação Orientada a Objetos (POO)*
 
 ### 📦 Gestão de Produtos
 
-* Cadastro de produtos com validação de regras de negócio.
-* Listagem completa do estoque.
-* Atualização de preços.
-* Exclusão de produtos.
-* Validação para impedir preços negativos.
+✔ Cadastro de produtos
+
+✔ Listagem do cardápio
+
+✔ Atualização de preços
+
+✔ Exclusão de produtos
+
+✔ Validação de regras de negócio
+
+---
 
 ### 🧾 Gestão de Pedidos
 
-* Criação de pedidos contendo múltiplos produtos.
-* Associação entre pedidos e itens através de relacionamento relacional.
-* Cálculo automático do valor total do pedido.
-* Consulta do histórico de vendas.
-* Cancelamento de pedidos.
+✔ Criação de pedidos com múltiplos itens
+
+✔ Cálculo automático do valor total
+
+✔ Histórico de vendas
+
+✔ Exclusão de pedidos
+
+✔ Relacionamento entre pedidos e produtos
+
+---
 
 ### 🔒 Integridade dos Dados
 
-* Utilização de **transações ACID** para garantir consistência.
-* Uso de `commit()` para confirmação das operações.
-* Uso de `rollback()` para desfazer alterações em caso de falha.
-* Utilização de `ON DELETE CASCADE` para remoção automática dos itens vinculados a um pedido cancelado.
+✔ Transações ACID utilizando `commit()` e `rollback()`
+
+✔ Relacionamentos com chaves estrangeiras
+
+✔ Utilização de `ON DELETE CASCADE`
+
+✔ Validação de dados antes da persistência
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* Python 3.10+
-* PostgreSQL
-* psycopg2
-* python-dotenv
-* Git e GitHub
+| Tecnologia    | Finalidade                   |
+| ------------- | ---------------------------- |
+| Python 3.10+  | Linguagem principal          |
+| PostgreSQL    | Banco de dados relacional    |
+| psycopg2      | Comunicação com o PostgreSQL |
+| python-dotenv | Variáveis de ambiente        |
+| Git           | Controle de versão           |
+| GitHub        | Hospedagem do projeto        |
 
 ---
 
-## 🧠 Conceitos Aplicados
+## 🧠 Conceitos Demonstrados
 
-### Programação Orientada a Objetos (POO)
+### Programação Orientada a Objetos
 
-* Encapsulamento com `@property` e `@setter`
 * Classes e Objetos
+* Encapsulamento
+* Properties e Setters
 * Métodos Especiais (`__str__`)
-* Validação de dados dentro das entidades
+* Type Hints
 
-### Banco de Dados Relacional
+### Banco de Dados
 
+* CRUD Completo
 * Chaves Primárias
 * Chaves Estrangeiras
-* Relacionamentos 1:N
+* Relacionamentos
 * Integridade Referencial
-* Transações
+* Transações ACID
 
 ### Boas Práticas
 
 * Clean Code
-* Type Hints
-* Separação de Responsabilidades
 * Arquitetura em Camadas
-* Variáveis de Ambiente para credenciais
+* Separação de Responsabilidades
+* Organização Modular
+* Variáveis de Ambiente
 
 ---
 
@@ -85,53 +124,58 @@ sistema_cafeteria/
 │   └── setup_db.py
 │
 ├── models/
-│   ├── pedido.py
+│   ├── produto.py
 │   ├── item_pedido.py
-│   └── produto.py
+│   └── pedido.py
 │
 ├── .env
+├── .env.example
 ├── .gitignore
 ├── requirements.txt
 └── main.py
 ```
 
-### Estrutura em Camadas
+### Organização das Camadas
 
-| Camada      | Responsabilidade                            |
-| ----------- | ------------------------------------------- |
-| Models      | Regras de negócio e entidades               |
-| Controllers | Operações e lógica da aplicação             |
-| Database    | Conexão, criação de tabelas e consultas SQL |
-| Main        | Interface CLI e fluxo do sistema            |
+| Pasta       | Responsabilidade                |
+| ----------- | ------------------------------- |
+| models      | Entidades e regras de negócio   |
+| controllers | Operações e lógica da aplicação |
+| database    | Conexão e consultas SQL         |
+| main.py     | Interface CLI e fluxo principal |
 
 ---
 
-## ⚙️ Configuração do Ambiente
+## ⚙️ Instalação
 
-### 1. Clonar o repositório
+### 1️⃣ Clonar o repositório
 
 ```bash
 git clone https://github.com/SEU_USUARIO/sistema-cafeteria.git
 cd sistema-cafeteria
 ```
 
-### 2. Criar e ativar o ambiente virtual
+---
 
-**Windows**
+### 2️⃣ Criar o ambiente virtual
+
+#### Windows
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
 ```
 
-**Linux/Mac**
+#### Linux / Mac
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Instalar as dependências
+---
+
+### 3️⃣ Instalar as dependências
 
 ```bash
 pip install -r requirements.txt
@@ -139,23 +183,21 @@ pip install -r requirements.txt
 
 ---
 
-## 🔐 Configuração do Banco de Dados
+### 4️⃣ Configurar o banco de dados
 
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=sua_base_de_dados
-DB_USER=seu_usuario
+DB_NAME=sistema_cafeteria
+DB_USER=postgres
 DB_PASSWORD=sua_senha
 ```
 
 ---
 
-## 🗄️ Criando as Tabelas
-
-Execute:
+### 5️⃣ Criar as tabelas
 
 ```bash
 python -m database.setup_db
@@ -163,7 +205,7 @@ python -m database.setup_db
 
 ---
 
-## ▶️ Executando o Sistema
+### 6️⃣ Executar a aplicação
 
 ```bash
 python main.py
@@ -171,39 +213,57 @@ python main.py
 
 ---
 
-## 🔄 Exemplo de Fluxo de Transação
+## 🔄 Exemplo de Transação
 
-Ao criar um pedido, o sistema:
+Ao finalizar um pedido o sistema executa:
 
-1. Insere o pedido na tabela `pedidos`.
-2. Recupera o ID gerado.
-3. Insere os itens na tabela `itens_pedido`.
-4. Confirma a operação com `commit()`.
-
-Caso qualquer etapa falhe:
+1. Inserção do pedido
+2. Recuperação do ID gerado
+3. Inserção dos itens do pedido
+4. Confirmação da transação
 
 ```python
-conexao.rollback()
+try:
+    conexao.commit()
+except Exception:
+    conexao.rollback()
 ```
 
-todas as alterações são desfeitas automaticamente, garantindo a consistência dos dados.
+Caso qualquer erro ocorra durante o processo, todas as alterações são revertidas automaticamente, garantindo a consistência dos dados.
 
 ---
 
-## 📚 Aprendizados Demonstrados
+## 🎯 Destaques Técnicos
 
-Este projeto demonstra conhecimentos em:
-
-* Python para desenvolvimento back-end.
-* PostgreSQL e modelagem relacional.
-* Programação Orientada a Objetos.
-* Manipulação de transações.
-* Arquitetura em camadas.
-* Integração Python + Banco de Dados.
-* Boas práticas de desenvolvimento.
+* Integração Python + PostgreSQL
+* Uso de Transações ACID
+* Relacionamentos entre tabelas
+* CRUD completo
+* Arquitetura em Camadas
+* Encapsulamento e Validação de Dados
+* Uso de Type Hints
+* Gerenciamento seguro de credenciais com `.env`
 
 ---
+
+## 🚧 Roadmap
+
+- [x] CRUD de produtos
+- [x] CRUD de pedidos
+- [x] Integração com PostgreSQL
+- [x] Transações ACID
+- [ ] Interface gráfica
+- [ ] API REST
+- [ ] Autenticação de usuários
 
 ## 👨‍💻 Autor
 
-Desenvolvido como projeto de estudos para aprofundamento em Python, Banco de Dados Relacionais e Desenvolvimento Back-end.
+Desenvolvido por **Rhuan** como projeto de estudos para aprofundamento em:
+
+* Python
+* PostgreSQL
+* Programação Orientada a Objetos
+* Desenvolvimento Back-end
+* Boas práticas de arquitetura de software
+
+
