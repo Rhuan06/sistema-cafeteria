@@ -1,6 +1,3 @@
-# Ignora variáveis de ambiente (Credenciais do PostgreSQL)
-.env
-
 # Ignora pastas de cache geradas automaticamente pelo Python
 __pycache__/
 *.py[cod]
@@ -9,3 +6,13 @@ __pycache__/
 # Ignora ambientes virtuais
 venv/
 env/
+.venv/
+
+# Ignora variáveis de ambiente
+.env
+
+
+.vscode/
+
+
+.DS_Store

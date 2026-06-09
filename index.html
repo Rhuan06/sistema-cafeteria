@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria - PDV</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    
+    <h1>☕ Cafeteria - PDV</h1>
+    
+    <div class="layout-pdV">
+        <div id="vitrine-produtos">
+            Carregando produtos...
+        </div>
+
+        <div class="carrinho-lateral">
+            <h2>🛒 Carrinho</h2>
+            <div id="lista-carrinho">
+                <p #msg-vazio>O carrinho está vazio.</p>
+            </div>
+            <div class="total-carrinho">
+                <span>Total:</span>
+                <span id="valor-total">R$ 0.00</span>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="area-gerente">
+        <h2>⚙️ Painel de Gerenciamento: Cadastrar Novo Produto</h2>
+        
+        <form id="form-produto" class="form-gerente" onsubmit="cadastrarProduto(event)">
+            <input type="text" id="novo-nome" placeholder="Nome do Produto (ex: Bolo de Cenoura)" required>
+            <input type="number" id="novo-preco" step="0.01" min="0.01" placeholder="Preço (ex: 12.50)" required>
+            <button type="submit" class="btn-salvar">Salvar no Cardápio</button>
+        </form>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <div id="modal-exclusao" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icone">⚠️</div>
+            <h3 class="modal-titulo">Retirar do Cardápio</h3>
+            <p class="modal-texto">
+                Você está prestes a ocultar o produto <strong id="modal-nome-produto"></strong>. <br><br>
+                Ele não aparecerá mais para novas vendas, mas o histórico financeiro antigo continuará preservado.
+            </p>
+            <div class="modal-botoes">
+                <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                <button class="btn-confirmar-exclusao" onclick="executarExclusao()">Sim, retirar produto</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

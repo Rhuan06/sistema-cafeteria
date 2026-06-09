@@ -6,9 +6,11 @@ INSERIR_PRODUTO = """
     RETURNING id;
 """
 
+# 1. ATUALIZADO: Agora só busca os produtos que estão com ativo = TRUE
 BUSCAR_TODOS_PRODUTOS = """
     SELECT id, nome, preco
     FROM produtos
+    WHERE ativo = TRUE
     ORDER BY nome;
 """
 
@@ -18,8 +20,10 @@ ATUALIZAR_PRODUTO = """
     WHERE id = %s;
 """
 
+# 2. ATUALIZADO: tira o DELETE destrutivo pelo UPDATE (Desligar)
 DELETAR_PRODUTO = """
-    DELETE FROM produtos 
+    UPDATE produtos 
+    SET ativo = FALSE 
     WHERE id = %s;
 """
 

@@ -1,111 +1,94 @@
+<div align="center">
+
 # ☕ Sistema de Gestão para Cafeteria
 
-![Python](https://img.shields.io/badge/Python-3.14+-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+### Sistema Full Stack de Ponto de Venda (PDV)
 
-> Sistema de gerenciamento de produtos e pedidos desenvolvido em **Python** com persistência de dados em **PostgreSQL**.
+Desenvolvido com **FastAPI**, **PostgreSQL** e **JavaScript**
 
-Este projeto foi criado com foco em **Programação Orientada a Objetos (POO)**, **Clean Code**, **Arquitetura em Camadas** e **boas práticas de desenvolvimento Back-end**, simulando um cenário real de controle de estoque e registro de vendas para uma cafeteria.
+<img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+<img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
 
----
+<br>
 
-## 📋 Sobre o Projeto
+Projeto desenvolvido para simular um sistema comercial moderno de gerenciamento de produtos e vendas, aplicando conceitos de **Arquitetura REST**, **POO**, **Clean Code**, **Persistência Relacional** e **Desenvolvimento Full Stack**.
 
-O sistema permite o gerenciamento completo de produtos e pedidos através de uma interface de linha de comando (CLI).
+</div>
 
-Além das operações de CRUD, o projeto implementa conceitos importantes de desenvolvimento de software, como:
 
-* Encapsulamento com `@property` e `@setter`
-* Persistência de dados em banco relacional
-* Transações ACID
-* Integridade referencial
-* Separação de responsabilidades
-* Variáveis de ambiente para proteção de credenciais
 
 ---
 
-## 🚀 Funcionalidades
+## ✨ Funcionalidades
 
 ### 📦 Gestão de Produtos
 
 ✔ Cadastro de produtos
 
-✔ Listagem do cardápio
+✔ Listagem dinâmica
 
-✔ Atualização de preços
+✔ Validação contra duplicidade
 
-✔ Exclusão de produtos
+✔ Exclusão lógica (Soft Delete)
 
-✔ Validação de regras de negócio
+✔ Persistência em PostgreSQL
 
 ---
 
-### 🧾 Gestão de Pedidos
+### 🧾 Ponto de Venda (PDV)
 
-✔ Criação de pedidos com múltiplos itens
+✔ Carrinho inteligente
 
-✔ Cálculo automático do valor total
+✔ Controle de quantidade de itens
 
-✔ Histórico de vendas
+✔ Cálculo automático de totais
 
-✔ Exclusão de pedidos
+✔ Finalização de pedidos
 
-✔ Relacionamento entre pedidos e produtos
+✔ Interface responsiva
+
+✔ Feedback visual com modais e notificações
 
 ---
 
 ### 🔒 Integridade dos Dados
 
-✔ Transações ACID utilizando `commit()` e `rollback()`
+✔ Transações ACID
 
-✔ Relacionamentos com chaves estrangeiras
+✔ Chaves estrangeiras
 
-✔ Utilização de `ON DELETE CASCADE`
+✔ Validação de dados
 
-✔ Validação de dados antes da persistência
+✔ Tratamento de erros
 
----
-
-## 🛠️ Tecnologias Utilizadas
-
-| Tecnologia    | Finalidade                   |
-| ------------- | ---------------------------- |
-| Python 3.10+  | Linguagem principal          |
-| PostgreSQL    | Banco de dados relacional    |
-| psycopg2      | Comunicação com o PostgreSQL |
-| python-dotenv | Variáveis de ambiente        |
-| Git           | Controle de versão           |
-| GitHub        | Hospedagem do projeto        |
+✔ Separação de responsabilidades
 
 ---
 
-## 🧠 Conceitos Demonstrados
+## 🏗️ Arquitetura
 
-### Programação Orientada a Objetos
+```text
+Frontend (HTML + CSS + JavaScript)
+               │
+               ▼
+       FastAPI REST API
+               │
+               ▼
+      PostgreSQL Database
+```
 
-* Classes e Objetos
-* Encapsulamento
-* Properties e Setters
-* Métodos Especiais (`__str__`)
-* Type Hints
+---
 
-### Banco de Dados
+## 🛠️ Stack Tecnológica
 
-* CRUD Completo
-* Chaves Primárias
-* Chaves Estrangeiras
-* Relacionamentos
-* Integridade Referencial
-* Transações ACID
-
-### Boas Práticas
-
-* Clean Code
-* Arquitetura em Camadas
-* Separação de Responsabilidades
-* Organização Modular
-* Variáveis de Ambiente
+| Categoria      | Tecnologias                  |
+| -------------- | ---------------------------- |
+| Backend        | Python, FastAPI, Pydantic    |
+| Banco de Dados | PostgreSQL, psycopg2         |
+| Frontend       | HTML5, CSS3, JavaScript      |
+| Ferramentas    | Git, GitHub, Uvicorn, Dotenv |
 
 ---
 
@@ -114,78 +97,54 @@ Além das operações de CRUD, o projeto implementa conceitos importantes de des
 ```text
 sistema_cafeteria/
 │
-├── controllers/
-│   ├── pedido_controller.py
-│   └── produto_controller.py
+├── backend/
+│   ├── controllers/
+│   ├── database/
+│   ├── models/
+│   ├── api.py
+│   └── .env
 │
-├── database/
-│   ├── conexao.py
-│   ├── queries.py
-│   └── setup_db.py
-│
-├── models/
-│   ├── produto.py
-│   ├── item_pedido.py
-│   └── pedido.py
-│
-├── .env
-├── .env.example
-├── .gitignore
-├── requirements.txt
-└── main.py
+└── frontend/
+    ├── index.html
+    ├── style.css
+    └── app.js
 ```
-
-### Organização das Camadas
-
-| Pasta       | Responsabilidade                |
-| ----------- | ------------------------------- |
-| models      | Entidades e regras de negócio   |
-| controllers | Operações e lógica da aplicação |
-| database    | Conexão e consultas SQL         |
-| main.py     | Interface CLI e fluxo principal |
 
 ---
 
-## ⚙️ Instalação
+## 🚀 Executando o Projeto
 
-### 1️⃣ Clonar o repositório
+### Clone o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/sistema-cafeteria.git
-cd sistema-cafeteria
+git clone https://github.com/seu-usuario/sistema-cafeteria.git
 ```
 
----
-
-### 2️⃣ Criar o ambiente virtual
-
-#### Windows
+### Crie e ative o ambiente virtual
 
 ```bash
 python -m venv .venv
+```
+
+Windows
+
+```bash
 .venv\Scripts\activate
 ```
 
-#### Linux / Mac
+Linux/Mac
 
 ```bash
-python -m venv .venv
 source .venv/bin/activate
 ```
 
----
-
-### 3️⃣ Instalar as dependências
+### Instale as dependências
 
 ```bash
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 ```
 
----
-
-### 4️⃣ Configurar o banco de dados
-
-Crie um arquivo `.env` na raiz do projeto:
+### Configure o arquivo .env
 
 ```env
 DB_HOST=localhost
@@ -195,75 +154,70 @@ DB_USER=postgres
 DB_PASSWORD=sua_senha
 ```
 
----
-
-### 5️⃣ Criar as tabelas
+### Execute a API
 
 ```bash
-python -m database.setup_db
+python -m backend.database.setup_db
+
+uvicorn backend.api:app --reload
+```
+
+### Swagger
+
+```text
+http://127.0.0.1:8000/docs
 ```
 
 ---
 
-### 6️⃣ Executar a aplicação
+## 🎯 Conceitos Aplicados
 
-```bash
-python main.py
-```
-
----
-
-## 🔄 Exemplo de Transação
-
-Ao finalizar um pedido o sistema executa:
-
-1. Inserção do pedido
-2. Recuperação do ID gerado
-3. Inserção dos itens do pedido
-4. Confirmação da transação
-
-```python
-try:
-    conexao.commit()
-except Exception:
-    conexao.rollback()
-```
-
-Caso qualquer erro ocorra durante o processo, todas as alterações são revertidas automaticamente, garantindo a consistência dos dados.
-
----
-
-## 🎯 Destaques Técnicos
-
-* Integração Python + PostgreSQL
-* Uso de Transações ACID
-* Relacionamentos entre tabelas
-* CRUD completo
+* Programação Orientada a Objetos (POO)
+* API REST
+* Clean Code
 * Arquitetura em Camadas
-* Encapsulamento e Validação de Dados
-* Uso de Type Hints
-* Gerenciamento seguro de credenciais com `.env`
+* Soft Delete
+* Transações ACID
+* Integração Front-end ↔ Back-end
+* Consumo de APIs com Fetch
+* Persistência Relacional
 
 ---
 
-## 🚧 Roadmap
+## 📈 Roadmap
 
-- [x] CRUD de produtos
-- [x] CRUD de pedidos
-- [x] Integração com PostgreSQL
-- [x] Transações ACID
-- [ ] Interface gráfica
-- [ ] API REST
-- [ ] Autenticação de usuários
+* [x] CRUD de Produtos
+* [x] CRUD de Pedidos
+* [x] PostgreSQL
+* [x] API REST
+* [x] Interface Web
+* [x] Soft Delete
+* [ ] Controle de Estoque
+* [ ] Dashboard Administrativo
+* [ ] Relatórios Financeiros
+* [ ] Autenticação de Usuários
+* [ ] Deploy em Nuvem
+
+---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Rhuan** como projeto de estudos para aprofundamento em:
+### Rhuan
+
+Desenvolvedor em formação com foco em:
 
 * Python
+* FastAPI
 * PostgreSQL
-* Programação Orientada a Objetos
-* Desenvolvimento Back-end
-* Boas práticas de arquitetura de software
+* JavaScript
+* Desenvolvimento Full Stack
+* Arquitetura de Software
+* Clean Code
 
+---
 
+<div align="center">
+
+### ⭐ Se gostou do projeto, deixe uma estrela no repositório!
+
+</div>
